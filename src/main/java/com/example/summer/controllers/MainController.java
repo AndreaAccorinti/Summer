@@ -30,15 +30,18 @@ public class MainController {
         }
         return "redirect:/home";
     }
+
     @GetMapping("/home")
     public String home(Model model) {
         return "home";
     }
+
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute(Constants.UTENTE, new Utente());
         return "register";
     }
+
     @PostMapping("/newUser")
     public String newUser(Utente utente) {
         String username = utente.getUsername();
@@ -49,4 +52,9 @@ public class MainController {
         return "redirect:/main";
     }
 
+    @PostMapping("/saveUser")
+    public void saveUser(@RequestParam Utente utente) {
+        utenteDao.save(utente);
+        System.out.println(utente);
+    }
 }
