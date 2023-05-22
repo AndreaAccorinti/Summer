@@ -36,6 +36,8 @@ public class Utente {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    //Easter Egg
 @Override
     public String toString() {
         return "Utente{" +
